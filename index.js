@@ -38,6 +38,8 @@ const applicationSettings = () => RNAndroidOpenSettings.applicationSettings()
 
 const deviceInfoSettings = () => RNAndroidOpenSettings.deviceInfoSettings()
 
+const captioningSettings = () => RNAndroidOpenSettings.captioningSettings()
+
 module.exports = {
   generalSettings,
   appDetailsSettings,
@@ -57,4 +59,5 @@ module.exports = {
   accessibilitySettings,
   applicationSettings,
   deviceInfoSettings,
+  captioningSettings,
 }
