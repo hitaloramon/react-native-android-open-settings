@@ -32,6 +32,16 @@ public class AndroidOpenSettings extends ReactContextBaseJavaModule {
             reactContext.startActivity(intent);
         }
     }
+    
+    @ReactMethod
+    public void homeSettings() {
+        Intent intent = new Intent(Settings.ACTION_HOME_SETTINGS);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        if (intent.resolveActivity(reactContext.getPackageManager()) != null) {
+            reactContext.startActivity(intent);
+        }
+    }
 
     @ReactMethod
     public void appDetailsSettings() {
@@ -204,6 +214,25 @@ public class AndroidOpenSettings extends ReactContextBaseJavaModule {
         }
     }
 
+    @ReactMethod
+    public void appNotificationSettings() {
+        Intent intent = new Intent("android.settings.APP_NOTIFICATION_SETTINGS"); // Settings.ACTION_APP_NOTIFICATION_SETTINGS
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+
+        //for Android 5-7
+        intent.putExtra("app_package", reactContext.getPackageName());
+        intent.putExtra("app_uid", reactContext.getApplicationInfo().uid);
+
+        // for Android 8 and above
+        intent.putExtra("android.provider.extra.APP_PACKAGE", reactContext.getPackageName()); // Settings.EXTRA_APP_PACKAGE
+
+        if (intent.resolveActivity(reactContext.getPackageManager()) != null) {
+            reactContext.startActivity(intent);
+        }
+    }
+
+    
     @ReactMethod
     public void captioningSettings() {
         Intent intent = new Intent(Settings.ACTION_CAPTIONING_SETTINGS);
