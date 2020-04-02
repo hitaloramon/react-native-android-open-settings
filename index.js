@@ -4,6 +4,8 @@ const { RNAndroidOpenSettings } = NativeModules
 
 const generalSettings = () => RNAndroidOpenSettings.generalSettings()
 
+const homeSettings = () => RNAndroidOpenSettings.homeSettings()
+
 const appDetailsSettings = () => RNAndroidOpenSettings.appDetailsSettings()
 
 const wifiSettings = () => RNAndroidOpenSettings.wifiSettings()
@@ -38,10 +40,13 @@ const applicationSettings = () => RNAndroidOpenSettings.applicationSettings()
 
 const deviceInfoSettings = () => RNAndroidOpenSettings.deviceInfoSettings()
 
+const appNotificationSettings = () => RNAndroidOpenSettings.appNotificationSettings()
+
 const captioningSettings = () => RNAndroidOpenSettings.captioningSettings()
 
 module.exports = {
   generalSettings,
+  homeSettings,
   appDetailsSettings,
   wifiSettings,
   locationSourceSettings,
@@ -59,5 +64,6 @@ module.exports = {
   accessibilitySettings,
   applicationSettings,
   deviceInfoSettings,
+  appNotificationSettings,
   captioningSettings,
 }
